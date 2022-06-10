@@ -1,4 +1,4 @@
-# CanvasGameTemplage
+# CanvasGameTemplae
 
 ## これは何？
 
