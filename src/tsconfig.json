@@ -1,0 +1,18 @@
+{
+	"compilerOptions": {
+		"outFile": "../docs/app.js",
+		"module": "amd",
+		"target": "es2022",
+		"moduleResolution": "node",
+		"strictNullChecks": true,
+		"noImplicitAny": true,
+		"removeComments": true,
+		"preserveConstEnums": false,
+		"keyofStringsOnly": true,
+		"sourceMap": false
+	},
+	"include": [
+		"./lib.ts",
+		"./app.ts"
+	]
+}
