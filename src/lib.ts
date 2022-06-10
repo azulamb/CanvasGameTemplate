@@ -1,3 +1,4 @@
+/** スクリーンに対するポインター情報 */
 interface OnClickGameScreenHandlerEvent {
 	/** イベント発生のX座標（スクリーン座標に変換済み） */
 	x: number;
@@ -6,9 +7,13 @@ interface OnClickGameScreenHandlerEvent {
 	/** 元イベント */
 	event: PointerEvent;
 }
+
+/** クリック時のコールバック関数 */
 interface OnClickGameScreenHandler {
 	(event: OnClickGameScreenHandlerEvent): unknown;
 }
+
+/** 更新時のコールバック関数 */
 interface OnUpdateHandler {
 	(game: SimpleCanvasGameLibrary): unknown;
 }
@@ -29,6 +34,8 @@ class SimpleCanvasGameLibrary {
 	public canvas: HTMLCanvasElement;
 	/** <canvas>の描画周りの命令が入っている */
 	public draw: CanvasRenderingContext2D;
+
+	// 管理用変数
 	protected onClickHandler: (event: PointerEvent) => unknown;
 	protected onUpdateId: number;
 
@@ -88,6 +95,7 @@ class SimpleCanvasGameLibrary {
 		this.draw.clearRect(0, 0, this.width, this.height);
 	}
 
+	/** 画像を読み込む */
 	public loadImage(url: string): Promise<HTMLImageElement> {
 		return new Promise((resolve, reject) => {
 			const image = document.createElement('img');
@@ -99,6 +107,7 @@ class SimpleCanvasGameLibrary {
 			image.src = url;
 		});
 	}
+
 	/**
 	 * マウスの座標を<canvas>の大きさから描画領域内の座標に変換する
 	 */
