@@ -1,7 +1,7 @@
 // メインのファイル
 
 // サンプル1
-/*SimpleCanvasGameLibrary.prepare().then((game) => {
+SimpleCanvasGameLibrary.prepare().then((game) => {
 	// キャンバスをクリア
 	game.clear();
 
@@ -37,10 +37,10 @@
 		game.draw.fill();
 		game.draw.closePath();
 	};
-});*/
+});
 
 // サンプル2
-SimpleCanvasGameLibrary.prepare().then(async (game) => {
+/*SimpleCanvasGameLibrary.prepare().then(async (game) => {
 	// 円のデータ
 	const position = { x: 320, y: 240 };
 	// フレーム数
@@ -100,4 +100,4 @@ SimpleCanvasGameLibrary.prepare().then(async (game) => {
 		// 更新停止
 		game.onUpdate = null;
 	});
-});
+});*/
