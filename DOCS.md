@@ -15,15 +15,28 @@ SimpleCanvasGameLibrary.prepare().then(async (game) => {
 
 ## canvas: [HTMLCanvasElement](https://developer.mozilla.org/ja/docs/Web/API/HTMLCanvasElement)
 
+描画を行うスクリーン対象の `<canvas>` です。
+ここの `width` と `height` がスクリーンサイズとなるので注意してください。
+
+この `<canvas` に対する描画を行うには、 [game.draw](#draw-canvasrenderingcontext2d) を使います。
+
 ## width: number
 
 スクリーンの横幅を入手できます。
+
+```ts
+const width = game.width;
+```
 
 ## height: number
 
 スクリーンの高さを入手できます。
 
-## onClick: OnClickGameScreenHandler | null
+```ts
+const height = game.height;
+```
+
+## onClick: null | (event: OnClickGameScreenHandlerEvent) => unknown
 
 クリック時にその座標を得ることができます。
 
@@ -42,6 +55,12 @@ game.onClick = (event) => {
 左が最小値の `0`で右が最大値の `game.width` となります。
 もし横に隙間がある場合は負の値や `game.width` より大きい値が返ってきます。
 
+```ts
+game.onClick = (event) => {
+	const x = event.x;
+}
+```
+
 ### event.y: number
 
 クリックされた場所のX座標です。スクリーン座標に合わせて変換されています。
@@ -49,11 +68,17 @@ game.onClick = (event) => {
 上が最小値の `0`で下が最大値の `game.height` となります。
 もし縦に隙間がある場合は負の値や `game.height` より大きい値が返ってきます。
 
+```ts
+game.onClick = (event) => {
+	const y = event.y;
+}
+```
+
 ### event.event: [PointerEevnt](https://developer.mozilla.org/ja/docs/Web/API/PointerEvent)
 
 生の[PointerEevnt](https://developer.mozilla.org/ja/docs/Web/API/PointerEvent)です。
 
-## onUpdate
+## onUpdate: null | (game: SimpleCanvasGameLibrary) => unknown
 
 画面の自動更新を行います。
 
